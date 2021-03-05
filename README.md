@@ -47,9 +47,16 @@ Change password for root user: 123456
 
 ## Install magento 
 
+```bash
+cd /var/www
+
 composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition=2.3.5 magento235
 
 Auth - user: cbb842dfe5c6b13a5e82ee3736e43f22 -pass: a3cd6560594ddfb6302579621b75ff88
+
+cd magento235
+
+```
 
 ## Install magento
 
@@ -84,10 +91,10 @@ upstream fastcgi_backend {
 
 server {
         listen                  80;
-        server_name             ofm22-mdc.local;
-        set $MAGE_ROOT          /var/www/ofm22-mdc;
+        server_name             magento2.local;
+        set $MAGE_ROOT          /var/www/magento235;
         set $MAGE_MODE          developer;
-        include                 /var/www/ofm22-mdc/nginx.conf.sample;
+        include                 /var/www/magento235/nginx.conf.sample;
 }
 
 ```
