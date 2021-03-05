@@ -33,17 +33,23 @@ sudo chmod +x /usr/local/bin/composer
 
 ```
 
-## Install mysql service
+## Install mysql
 
-sudo apt install mysql-server
-
+```bash
+sudo apt-get install software-properties-common
+sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
+sudo add-apt-repository "deb [arch=amd64,arm64,ppc64el] http://mariadb.mirror.liquidtelecom.com/repo/10.4/ubuntu $(lsb_release -cs) main"
+sudo apt update
+sudo apt -y install mariadb-server mariadb-client
 sudo service mysql status
 
-sudo mysql -u root
+mysql -u root -p
 
 database create magento;
 
 Change password for root user: 123456
+
+```
 
 ## Install magento 
 
@@ -103,20 +109,26 @@ Save this.
 
 Symlink file
 
+```bash
 sudo ln -s /etc/nginx/sites-available/magento2.local /etc/nginx/sites-enabled/
+```
 
 ### Check config 
 
+```bash
 sudo nginx -t
 
 sudo service nginx restart
+```
 
 ## Change hosts
 
+```bash
 sudo vim hosts
 
 127.0.0.1 magento2.local
 
+```
 ## Change user nginx to your user
 
 sudo vim /etc/nginx/nginx.conf
