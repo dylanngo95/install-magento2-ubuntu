@@ -15,19 +15,23 @@ sudo apt update
 
 ## Install php 7.2
 
+```bash
 sudo apt install php7.2-common php7.2-cli php7.2-fpm php7.2-opcache php7.2-gd php7.2-mysql php7.2-curl php7.2-intl php7.2-xsl php7.2-mbstring php7.2-zip php7.2-bcmath php7.2-soap
+```
 
 ## check status php7.2
 sudo service php7.2-fpm status
 
 ## Install composer
 
+```bash
 curl -o composer.phar https://getcomposer.org/download/1.10.20/composer.phar
 
 sudo mv composer.phar /usr/local/bin/composer
 
 sudo chmod +x /usr/local/bin/composer
 
+```
 
 ## Install mysql service
 
@@ -49,6 +53,7 @@ Auth - user: cbb842dfe5c6b13a5e82ee3736e43f22 -pass: a3cd6560594ddfb6302579621b7
 
 ## Install magento
 
+```bash
 bin/magento setup:install \
 --base-url=http://magento2.local/ \
 --db-host=localhost \
@@ -64,6 +69,7 @@ bin/magento setup:install \
 --currency=USD \
 --timezone=America/Chicago \
 --use-rewrites=1
+```
 
 ## Setup nginx
 
@@ -71,6 +77,7 @@ sudo vim /etc/nginx/site-availables/magento2.local
 
 Paste this:
   
+```bash
 upstream fastcgi_backend {
         server  unix:/var/run/php/php7.2-fpm.sock;
 }
@@ -83,6 +90,7 @@ server {
         include                 /var/www/ofm22-mdc/nginx.conf.sample;
 }
 
+```
 
 Save this.
 
